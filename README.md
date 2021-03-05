@@ -78,10 +78,15 @@ After building this ETL pipe, all the tables are filled in with *Song* and *Log*
 
 Sample query: 
 ```
-SELECT songs.artist_id, sum( duration) FROM songs GROUP BY songs.artist_id ORDER BY sum( duration) desc LIMIT 10;
+SELECT songs.artist_id, sum( duration)
+FROM songs
+GROUP BY songs.artist_id
+ORDER BY sum( duration) desc
+LIMIT 10;
 ```
 
-results :
+Output
+
 ![1. Query results](./static/res_query1.png)
 
 
@@ -89,10 +94,13 @@ results :
 
 Sample query: 
 ```
-SELECT level, COUNT( level) AS count FROM songplays GROUP BY level;
+SELECT level, COUNT( level) AS count
+FROM songplays
+GROUP BY level;
 ```
 
-results : 
+Output
+
 ![2. Query results](./static/res_query2.png)
 
 
