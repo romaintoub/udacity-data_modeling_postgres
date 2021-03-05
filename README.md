@@ -50,7 +50,7 @@ The project is divided into 3 important steps :
 
 1. Create tables with a star schema 
 
-<img src="sparkify_schema.jpg" alt="drawing" width="400"/>
+![sparkify_schema](./static/sparkify_schema.jpg)
 
 The project is composed of one fact table and four dimension tables. The fact table, named _songplays_, records in log data associated with song plays. This table provides the metrics of the data I want to extract. The dimension tables provide information related to different dimensions of the fact table, such as _users_, _songs_, _artists_ and _time_ which records respectively the users, the songs, the artists and the timestamp of records in _songplays_ broken down into different units. 
 
@@ -75,19 +75,25 @@ After building this ETL pipe, all the tables are filled in with *Song* and *Log*
 ## 3. Example queries and results for song play analysis 
 
 1. Select the 10 first artists id that cumulates the highest total duration of music in the database.
-query = """SELECT songs.artist_id, sum( duration) FROM songs GROUP BY songs.artist_id ORDER BY sum( duration) desc LIMIT 10;
-"""
 
-results : 
-<img src="res_query1.png" alt="drawing" width="200"/>
+Sample query: 
+```
+SELECT songs.artist_id, sum( duration) FROM songs GROUP BY songs.artist_id ORDER BY sum( duration) desc LIMIT 10;
+```
+
+results :
+![1. Query results](./static/res_query1.png)
 
 
 2. Count the number of users that have a paid level and the number of users that have a free level to get the proportion of paid/free accounts. 
 
-query = """%sql SELECT level, COUNT( level) AS count FROM songplays GROUP BY level;"""
+Sample query: 
+```
+SELECT level, COUNT( level) AS count FROM songplays GROUP BY level;
+```
 
 results : 
-<img src="res_query2.png" alt="drawing" width="100"/>
+![2. Query results](./static/res_query2.png)
 
 
 ## 4. Environment 
